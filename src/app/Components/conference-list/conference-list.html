@@ -1,0 +1,32 @@
+<section class="card" id="conferences">
+  <h2>Liste des conférences à venir</h2>
+
+  <input type="text" placeholder="Taper le titre de la conférence"
+         [(ngModel)]="searchText" />
+
+  <div class="cards">
+    @for (c of filteredConferences; track c.id) {
+      <div class="conf"
+           [class.selected]="selectedConference?.id === c.id"
+           (click)="select(c)">
+        <h3>{{ c.title | uppercase }}</h3>
+        <p><strong>Date :</strong> {{ c.date | date: 'dd/MM/yyyy' }}</p>
+        <p><strong>Lieu :</strong> {{ c.place }}</p>
+        <p><strong>Places restantes :</strong> {{ remaining(c) }}</p>
+
+        <button [ngClass]="getColor(c)"
+                [disabled]="remaining(c) === 0"
+                (click)="register(c); $event.stopPropagation()">
+          S'inscrire
+        </button>
+      </div>
+    } @empty {
+      <p class="empty">Aucune conférence disponible.</p>
+    }
+  </div>
+</section>
+
+<app-conference-details
+  [conference]="selectedConference"
+  (registered)="register($event)">
+</app-conference-details>

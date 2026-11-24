@@ -1,0 +1,11 @@
+.card { padding: 16px; margin: 16px; border: 1px solid #ddd; border-radius: 8px; }
+input { padding: 8px; width: 250px; margin-bottom: 12px; }
+.conf { border: 1px solid #ccc; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+button { color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+button.green { background-color: green; }
+button.orange { background-color: orange; }
+button.red { background-color: red; cursor: not-allowed; }
+.empty { color: gray; font-style: italic; }
+.cards { display: flex; gap: 16px; flex-wrap: wrap; }
+.conf { flex: 1; min-width: 220px; cursor: pointer; background: #f8fafc; }
+.conf.selected { border-color: #7aaee0; box-shadow: 0 4px 12px rgba(0,0,0,.15); }

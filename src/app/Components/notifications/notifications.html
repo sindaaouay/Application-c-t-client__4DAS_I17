@@ -1,0 +1,17 @@
+<section class="card" id="notifications">
+  <div class="icon">🔔</div>
+  <div>
+    <h2>Zone de notifications</h2>
+    <p>Vous avez {{notifList.length}} notifications.</p>
+    <button (click)="ShowNotifications()">{{btnText}}</button>
+    @if (show) {
+            @for (item of notifList; track item) {
+              <p>  {{item.message}}</p>            
+        }
+  }
+  </div>
+</section>
+
+
+
+
